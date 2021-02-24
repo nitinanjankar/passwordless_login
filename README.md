@@ -15,8 +15,6 @@ Clone the repository to your ansible-enabled host:
 git clone https://github.com/nitinanjankar/passwordless_login.git
 ```
 
-Alternatively, you can download the `ansible_setup_passwordless_ssh.yml` and `hosts` from this repository.
-
 ---
 
 ## Prerequisites
