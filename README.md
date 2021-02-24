@@ -31,6 +31,9 @@ If you dont have them, before continuing you will have to install them using the
 
 ---
 
+## How to run it
+
+run:
 
 ```
 cd passwordless_login
