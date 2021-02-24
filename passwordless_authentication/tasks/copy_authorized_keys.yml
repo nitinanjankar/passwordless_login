@@ -1,0 +1,14 @@
+- name: CREATING SSH FOLDER IN THE HOME DIRECTORY OF GIVEN USER
+  become user: "{{ansible_svc}}"
+  file:
+     path: "/home/{{ansible_svc}}/.ssh"
+     mode: "0700"
+     owner: "{{ansible_svc}}"
+     state: directory
+- name: COPY PUBLIC KEY  TO TARGET_SERVER AUTHORIZED_KEYS
+  become_user: "{{ansible_svc}}"
+  copy:
+     content: "{{ hostvars[control_node]['pub']  }}"
+     dest: "/home/{{ansible_svc}}/.ssh/authorized_keys"
+     mode: '0644'
+  register: copy_public_key

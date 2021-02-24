@@ -1,0 +1,8 @@
+ansible_user: user_test_2    # Temporary login user
+ansible_password: @!#$%&(21) # Temporary login password
+ansible_svc: user_test_3     # name of new service account
+control_node: xx.xx.xx.xx    # Ansible control Node
+target_nodes:
+  - yy.yy.yy.yy
+  - zz.zz.zz.zz
+Disable_Temp_user: False # Flag to disable temporary Login user

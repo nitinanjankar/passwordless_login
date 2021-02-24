@@ -1,0 +1,15 @@
+- name: RETRIEVE SUDOERS ENTRY
+  shell: cat /etc/sudoers| grep -E '(^|\s){{ansible_svc}}($|\s)'
+  register: sudoers_entry_check
+  ignore_errors: true
+- name: ENSURE THE USER HAS ELEVATED PRIVILEGES
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^{{ansible_svc}} '
+    line: '{{ansible_svc}} ALL=(ALL) NOPASSWD:ALL'
+  when:  sudoers_entry_check.stdout != ''
+- name: MAKING NEW SUDOERS ENTRY
+  shell: echo "{{ansible_svc}} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+  register: creating_sudoers_entry
+  ignore_errors: true
+  when: sudoers_entry_check.stdout == ''
