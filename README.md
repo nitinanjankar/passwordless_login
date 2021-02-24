@@ -29,6 +29,22 @@ If you dont have them, before continuing you will have to install them using the
 
 ---
 
+## Preparations before you run
+
+Edit the `hosts` file and define your environment's information. Fill in using the below matrix:
+
+| Name | Description |
+| ----------------------- | ---------------------------------------------- |
+| ansible_user | User of your localhost AND remote machines. If you are applying the procedure to multiple hosts, It must be common. |
+| ansible_password | The password of your localhost's and remote_machine_username account |
+| ansible_svc | User service account to create passwordless authentication |
+| control_node | If you want to define the IP of your local_host |
+| [target_nodes] | Fill in the list of hosts that you want to establish the passwordless login with. |
+
+If you are planning to run the script towards multiple hosts, make sure the username/password you defined is the same to all of them!
+
+---
+
 ## How to run it
 
 run:
