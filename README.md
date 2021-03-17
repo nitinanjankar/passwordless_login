@@ -52,6 +52,8 @@ run:
 ```
 cd passwordless_login
 
+export ANSIBLE_HOST_KEY_CHECKING=False
+
 ansible-playbook passwordless_authentication.yml 
 
 ```
